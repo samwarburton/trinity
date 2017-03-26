@@ -65,8 +65,11 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+
+        $project = Project::where('id', $id)->first();
+
+        return view('projects.edit', compact('project'));
     }
 
     /**

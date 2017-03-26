@@ -44,9 +44,18 @@
                 <div class="panel-body">
                   <div class="container">
                     @foreach($tasks as $task)
-                    <div class="row">
-                    <p>{{$task->name}}</p> <a href="#">Delete</a> <a href="#">Mark as Complete</a>
-                    </div>
+                    
+                    @if($task->completed == true)
+
+                    <p><b>{{$task->name}}</b></p></br>
+
+                    @else
+
+                    
+
+
+                    @endif
+
                     @endforeach
                 </div>
                 </div>
@@ -55,24 +64,6 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Completed Tasks</div>
-                <div class="panel-body">
-                  <div class="container">
-                    @foreach($tasks as $task)
-                    <div class="row">
-                    <p>{{$task->name}}</p> <a href="#">Delete</a> <a href="#">Mark as Complete</a>
-                    </div>
-                    @endforeach
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 

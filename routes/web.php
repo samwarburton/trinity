@@ -22,4 +22,9 @@ Route::get('/home', 'HomeController@index');
 Route::get('/project/new', 'ProjectsController@create');
 Route::post('/project/new', 'ProjectsController@store');
 Route::get('/project/{id}', 'ProjectsController@show');
+Route::get('/project/{id}/edit', 'ProjectsController@edit');
+
 Route::post('/project/{id}', 'TasksController@store');
+Route::get('/experiment', 'ExperimentsController@index');
+
+Route::get('/{id}/complete', 'TasksController@update');

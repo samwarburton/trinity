@@ -3,18 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Task;
+use App\Custom\Reporting;
 
-class TasksController extends Controller
+class ExperimentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Reporting $reporting)
     {
-        //
+        $message = $reporting->getPercentage();
+        return view('experiments.index', compact('message'));
     }
 
     /**
@@ -33,14 +34,9 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $task = new Task;
-        $task->name = $request->task_name;
-        $task->project_id = $id;
-        $task->save();
-        return redirect()->action('ProjectsController@show', ['id' => $id]);
-        
+        //
     }
 
     /**
@@ -72,12 +68,9 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $task = Task::where('id', $id)->first();
-        $task->completed = TRUE; 
-        $task->save();
-        return redirect()->action('HomeController@index');
+        //
     }
 
     /**
