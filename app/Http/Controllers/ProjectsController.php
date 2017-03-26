@@ -43,6 +43,7 @@ class ProjectsController extends Controller
         $project->user_id = Auth::id();
         $project->description = $request->project_description;
         $project->save();
+        return redirect()->action('HomeController@index');
     }
 
     /**
@@ -55,7 +56,9 @@ class ProjectsController extends Controller
     {
         $project = Project::where('id', $project_id)->first();
         $tasks = Task::where('project_id', $project_id)->orderBy('completed')->get();
-        return view('projects.show', compact('project', 'tasks'));
+        $incompleted_tasks = $tasks->where('completed', false);
+        $completed_tasks = $tasks->where('completed', true);
+        return view('projects.show', compact('project', 'tasks' , 'incompleted_tasks', 'completed_tasks'));
     }
 
     /**

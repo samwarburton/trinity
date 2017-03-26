@@ -40,14 +40,42 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">{{$tasks->count()}} Tasks</div>
+                <div class="panel-heading">{{$incompleted_tasks->count()}} Uncompleted Tasks</div>
                 <div class="panel-body">
                   <div class="container">
-                    @foreach($tasks as $task)
+                    @foreach($incompleted_tasks as $task)
                     
                     
 
-                    <p>{{$task->name}} <a href="">{{$task->completed}}</a> <a href="/project/{{$project->id}}/task/{{$task->id}}/complete">Mark Completed</a><a href="/project/{{$project->id}}/task/{{$task->id}}/delete">Delete</a> </p></br>
+                    <p>{{$task->name}} <a href="/project/{{$project->id}}/task/{{$task->id}}/complete">Mark Completed</a><a href="/project/{{$project->id}}/task/{{$task->id}}/delete">Delete</a> </p></br>
+
+                    
+
+                    
+
+
+            
+
+                    @endforeach
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{$completed_tasks->count()}} Completed Tasks</div>
+                <div class="panel-body">
+                  <div class="container">
+                    @foreach($completed_tasks as $task)
+                    
+                    
+
+                    <p>{{$task->name}}  <a href="/project/{{$project->id}}/task/{{$task->id}}/delete">Delete</a> </p></br>
 
                     
 
