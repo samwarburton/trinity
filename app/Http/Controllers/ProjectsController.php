@@ -51,10 +51,10 @@ class ProjectsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($project_id)
     {
-        $project = Project::where('id', $id)->first();
-        $tasks = Task::where('project_id', $id)->get();
+        $project = Project::where('id', $project_id)->first();
+        $tasks = Task::where('project_id', $project_id)->orderBy('completed')->get();
         return view('projects.show', compact('project', 'tasks'));
     }
 

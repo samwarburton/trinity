@@ -72,12 +72,12 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($project_id, $task_id)
     {
-        $task = Task::where('id', $id)->first();
+        $task = Task::where('id', $task_id)->first();
         $task->completed = TRUE; 
         $task->save();
-        return redirect()->action('HomeController@index');
+        return back()->withInput();
     }
 
     /**
@@ -86,8 +86,13 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($project_id, $task_id)
+    {   
+        $task = Task::where('id', $task_id)->first();
+        $task->delete();   
+        return back()->withInput();
+        
+        
+
     }
 }

@@ -27,4 +27,5 @@ Route::get('/project/{id}/edit', 'ProjectsController@edit');
 Route::post('/project/{id}', 'TasksController@store');
 Route::get('/experiment', 'ExperimentsController@index');
 
-Route::get('/{id}/complete', 'TasksController@update');
+Route::get('/project/{project_id}/task/{task_id}/complete', 'TasksController@update');
+Route::get('/project/{project_id}/task/{task_id}/delete', 'TasksController@destroy');

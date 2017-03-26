@@ -45,16 +45,16 @@
                   <div class="container">
                     @foreach($tasks as $task)
                     
-                    @if($task->completed == true)
+                    
 
-                    <p><b>{{$task->name}}</b></p></br>
+                    <p>{{$task->name}} <a href="">{{$task->completed}}</a> <a href="/project/{{$project->id}}/task/{{$task->id}}/complete">Mark Completed</a><a href="/project/{{$project->id}}/task/{{$task->id}}/delete">Delete</a> </p></br>
 
-                    @else
+                    
 
                     
 
 
-                    @endif
+            
 
                     @endforeach
                 </div>
