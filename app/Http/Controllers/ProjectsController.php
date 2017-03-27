@@ -84,7 +84,11 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $project = Project::where('id', $id)->first();
+        $project->name = $request->project_name;
+        $project->description = $request->project_description;
+        $project->save();
+        return redirect()->action('HomeController@index');
     }
 
     /**
@@ -95,6 +99,8 @@ class ProjectsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::where('id', $id)->first();
+        $project->delete();
+        return redirect()->action('HomeController@index');
     }
 }

@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">{{$incompleted_tasks->count()}} Uncompleted Tasks</div>
+                <div class="panel-heading">{{$incompleted_tasks->count()}} Incomplete Tasks</div>
                 <div class="panel-body">
                   <div class="container">
                     @foreach($incompleted_tasks as $task)
