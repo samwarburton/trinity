@@ -18,9 +18,9 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->text('description');
+            $table->text('keyOutcomes');
             $table->date('deadline');
             $table->integer('user_id')->unsigned();
-
             $table->foreign('user_id')->references('id')->on('users');
 
         });

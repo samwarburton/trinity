@@ -13,7 +13,10 @@
                     	<div class="form-group">
                     		{{csrf_field()}}
                     		<input name="project_name" class="form-control" type="text" placeholder="Project Name"></br>
-                    		<textarea name="project_description" class="form-control" placeholder="Description"></textarea></br>
+                            <label>Deadline:</label>
+                            <input name="deadline" class="form-control" type="date"></br>
+                    		<textarea rows="10" name="project_description" class="form-control" placeholder="Description"></textarea></br>
+                            <textarea rows="10" name="key_outcomes" class="form-control" placeholder="Key Outcomes"></textarea></br>
                     		<input type="submit" class="btn btn-default" value="Create">
                     	</div>
                     </form>

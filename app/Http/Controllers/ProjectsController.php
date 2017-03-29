@@ -42,6 +42,8 @@ class ProjectsController extends Controller
         $project->name = $request->project_name; 
         $project->user_id = Auth::id();
         $project->description = $request->project_description;
+        $project->keyOutcomes = $request->key_outcomes;
+        $project->deadline = $request->deadline;
         $project->save();
         return redirect()->action('HomeController@index');
     }
