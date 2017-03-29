@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use Auth;
+use App\Report;
 
 
 class HomeController extends Controller
@@ -25,11 +26,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Report $report)
     {
-        $id = Auth::id();
-	    $projects = Project::where('user_id', $id)->get();
-        return view ('/home', compact('projects'));
+        $projects = $report->getAllProjects();
+        $numberOfTasks = $report->percentageOfTasksComplete();
+        return view ('/home', compact('projects', 'numberOfTasks'));
         
     }
 }
